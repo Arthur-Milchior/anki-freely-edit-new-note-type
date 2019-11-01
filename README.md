@@ -11,7 +11,20 @@ note type not synchronized is used.
 I should note that this has been created as a PR in Anki, so this
 may eventually becomes useless.
 
-## Warning
+## Warnings
+
+### Potential risk if you import twice a deck
+There is a rare risk, which I can't avoid, appart by telling you not
+to do it. Here is what you should not do:
+* import the same deck in two computers.
+* edit the deck in one of the computer
+* sync both computer.
+
+If it's the case, you may have bug during review (if you changed the
+number of fields) or you may simply find that you have incorrect
+card/field content.
+
+### Mystery
 As ankiweb is closed source, I don't actually now entirely for sure
 what occurs there. I may have missed something. In the worse case,
 anki will tell you there is a database inconsistency and ask for a
