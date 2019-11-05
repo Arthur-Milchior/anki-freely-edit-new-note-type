@@ -10,13 +10,13 @@ def removeLS(self):
     for m in self.all():
         if "ls" in m:
             del m["ls"]
-Models.removeLS = removeLS
+ModelManager.removeLS = removeLS
 
-oldBeforeUpload = Models.beforeUpload
+oldBeforeUpload = ModelManager.beforeUpload
 def beforeUpload(self):
     self.removeLS
     oldBeforeUpload(self)
-Models.beforeUpload = beforeUpload
+ModelManager.beforeUpload = beforeUpload
 
 
 ## Replacing by _modSchemaIfRequired
