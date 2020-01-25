@@ -1,7 +1,7 @@
 from anki.models import ModelManager
 import re
 
-def _modSchemaIfRequired(col, m):
+def _modSchemaIfRequired(self, m):
     if m['id'] and m.get("ls", 0) != self.col.ls:
         self.col.modSchema(check=True)
 ModelManager._modSchemaIfRequired = _modSchemaIfRequired
@@ -189,7 +189,7 @@ def copy(self, name):
 ModelManager.copy = copy
 
 def addField(self, m, field):
-    self._modSchemaIfRequired(self.col, m)
+    self._modSchemaIfRequired(m)
     m['flds'].append(field)
     self._updateFieldOrds(m)
     self.save(m)
@@ -203,7 +203,7 @@ def addTemplate(self, m, template):
     "Note: should col.genCards() afterwards."
     # usn is -1 if either model is new or model has been changed.
     # in the second case, schema is already marked as modified.
-    self._modSchemaIfRequired(self.col, m)
+    self._modSchemaIfRequired(m)
     m['tmpls'].append(template)
     self._updateTemplOrds(m)
     self.save(m)
